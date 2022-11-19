@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
 *{
     padding: 0;
     margin: 0;
@@ -17,11 +19,13 @@ main{
 main .calculator-body{
     height: 40rem;
     width: 30rem;
-    background-color: #3c4e3c;
+    background-color: #4e5261;
     position: relative;
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
+    border-radius: 15px;
+    box-shadow: 2px 1px 7px 11px #313131;
 }
 
 .calculator-body .calculation-screen{
@@ -36,6 +40,7 @@ main .calculator-body{
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    border-radius: 10px;
 }
 
 .calculation-screen .operation{
@@ -55,5 +60,32 @@ main .calculator-body{
     left: 1.5rem;
     right: 1.5rem;
     display: grid;
-    grid-template-rows: 30px 30px;
+    grid-template-columns: repeat(4, auto);
+    column-gap: 10px;
+    row-gap: 35px;
+}
+.calculator-buttons .clear{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.calculator-buttons .delete{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    background-color: #ee7f7f;
+}
+.calculator-buttons button{
+    font-size: 0.5em;
+    font-family: 'Abel';
+    font-weight: 800;
+    height: 3.5rem;
+    border-radius: 10px;
+    box-shadow: 4px 3px 3px #313131;
+}
+.calculator-buttons button:hover{
+    transform: scale(1.05);
+    
+}
+.calculator-buttons button:active{
+    transform: scale(0.8);
+    box-shadow: none;
 }
