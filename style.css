@@ -64,15 +64,39 @@ main .calculator-body{
     column-gap: 10px;
     row-gap: 35px;
 }
+
 .calculator-buttons .clear{
+    background-color: #ffffff;
     grid-column-start: 1;
     grid-column-end: 3;
 }
 .calculator-buttons .delete{
+    background-color: #ee7f7f;
     grid-column-start: 3;
     grid-column-end: 5;
-    background-color: #ee7f7f;
 }
+.calculator-buttons .clear, .calculator-buttons .delete{
+    font-size: 0.5em;
+    font-family: 'Abel';
+    font-weight: 800;
+    text-align: center;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    border-radius: 10px;
+    box-shadow: 4px 3px 3px #313131;
+}
+.calculator-buttons .clear:hover, .calculator-buttons .delete:hover{
+    cursor: default;
+    transform: scale(1.05);
+}
+.calculator-buttons .clear:active, .calculator-buttons .delete:active{
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
 .calculator-buttons button{
     font-size: 0.5em;
     font-family: 'Abel';
@@ -86,6 +110,6 @@ main .calculator-body{
     
 }
 .calculator-buttons button:active{
-    transform: scale(0.8);
+    transform: scale(0.95);
     box-shadow: none;
 }
