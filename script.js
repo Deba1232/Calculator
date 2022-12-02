@@ -1,14 +1,15 @@
 let userInputAndResult = document.querySelector('.user-input-and-result-line');
 let operationLine = document.querySelector('.operation-line');
 
-let calculatorButtons = document.querySelectorAll('button');
+let numberButtons = document.querySelectorAll('.number');
+let operatorButtons = document.querySelectorAll('.operator');
 
 let clickCounter = 0;
-let initial = '';
+let initial = '0';
 
-calculatorButtons.forEach( (button) => {
+numberButtons.forEach( (button) => {
     button.addEventListener( 'click', (e) => {
-        console.log(e.target.textContent);
+        // console.log(e.target.textContent);
         clickCounter++;
         
         if (clickCounter === 1){
@@ -29,14 +30,32 @@ calculatorButtons.forEach( (button) => {
         if (clickCounter > 1){
             userInputAndResult.textContent = initial + e.target.textContent;
             initial = userInputAndResult.textContent;
-
         }
 
-        if (!e.target.textContent.match(/[0-9.]/)){
-            userInputAndResult.textContent = '';
-            operationLine.textContent = initial;
-        }
+        
 
     },false);
 
 });
+
+operatorButtons.forEach( (operatorButton) => {
+    operatorButton.addEventListener('click', (e) => {
+        console.log(initial);
+        
+        // operationLine.textContent = `${initial} ${e.target.textContent}`;
+
+        operation(initial, e.target.textContent);
+        
+        initial = '';
+
+    });
+
+
+});
+
+// let equalButton = document.querySelector('.equals');
+// equalButton.addEventListener( 'click', (evt) => {
+//     // operationLine.textContent = `${initial} ${evt.target.textContent}`;
+
+//     operation(initial, evt.target.textContent);
+// });
