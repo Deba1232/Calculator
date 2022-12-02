@@ -63,6 +63,5 @@ function operation(number,operator){
         
 
     }
-
-
+    
 }
