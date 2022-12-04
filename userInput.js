@@ -14,8 +14,8 @@ numberButtons.forEach( (button) => {
         
         if (clickCounter === 1){
 
-            if (!e.target.textContent.match(/[0-9]/)) {
-                initial = `0${e.target.textContent}`;
+            if (e.target.textContent.includes('.')) {
+                initial = '0.';
                 userInputAndResult.textContent = initial;
             }
 
@@ -28,11 +28,15 @@ numberButtons.forEach( (button) => {
         }
         
         if (clickCounter > 1){
+
+            if (e.target.textContent.includes('.')) {
+                initial = '0';
+                userInputAndResult.textContent = initial;
+            }
+
             userInputAndResult.textContent = initial + e.target.textContent;
             initial = userInputAndResult.textContent;
         }
-
-        
 
     },false);
 
@@ -41,21 +45,22 @@ numberButtons.forEach( (button) => {
 operatorButtons.forEach( (operatorButton) => {
     operatorButton.addEventListener('click', (e) => {
         console.log(initial);
-        
-        // operationLine.textContent = `${initial} ${e.target.textContent}`;
 
-        operation(initial, e.target.textContent);
+        if (e.target.textContent === '('){
+
+            if(initial === '0'){
+                initial = '';
+            }
+
+            else{
+                initial += '\u00d7';
+            }
+        }
+
+        expression(initial, e.target.textContent);
         
         initial = '';
 
     });
 
-
 });
-
-// let equalButton = document.querySelector('.equals');
-// equalButton.addEventListener( 'click', (evt) => {
-//     // operationLine.textContent = `${initial} ${evt.target.textContent}`;
-
-//     operation(initial, evt.target.textContent);
-// });

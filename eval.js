@@ -1,8 +1,8 @@
-const expression = '4^2*3-3+8/4/(1+1*(1+6))';
+// const expr = '4^2*3-3+8/4/(1+1*(1+6))';
 
 function infixToPostfixExpression (expression){
 
-    let infixExpression = expression.split('');
+    let infixExpressionArray = expression.split('');
     
     let postfixExpression = [];
     let stack = [];
@@ -17,7 +17,7 @@ function infixToPostfixExpression (expression){
         '(' : 1,
     };
 
-    infixExpression.forEach( (symbol) => {
+    infixExpressionArray.forEach( (symbol) => {
 
         if (Number.isInteger(parseInt(symbol)) === true){
             postfixExpression.push(symbol);
@@ -129,4 +129,4 @@ function evaluate(infixExpression) {
 
 
 
-console.log(evaluate(expression));
+// console.log(evaluate(expression));
