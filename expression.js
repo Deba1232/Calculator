@@ -5,6 +5,7 @@ let infixExpression = '';
 function expression(number,operator){
 
     if (operator === ')'){
+
         if(inputArray.includes('(')){
             numberArray.push(parseInt(number));
             console.log(`numbers:${numberArray}`);
@@ -17,7 +18,7 @@ function expression(number,operator){
         }
     }
 
-    if(operator === '='){
+    else if (operator === '='){
         evaluate(infixExpression);
     }
 
